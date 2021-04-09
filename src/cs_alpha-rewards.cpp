@@ -40,7 +40,7 @@ public:
         else if (*args && IsGM && !target) // if no target selected but if arguments
         {
             //Check see if player is online
-            Player* CheckPlayer = sObjectAccessor->FindPlayerByName((char*)args);
+            Player* CheckPlayer = ObjectAccessor::FindPlayerByName((char*)args);
 
             if (CheckPlayer)
             {
@@ -126,7 +126,7 @@ public:
                 LoginDatabase.DirectPExecute("UPDATE `account` SET `game_point` =  `game_point` + '%u' WHERE `id` = '%u'", amount, AccountId);
                 handler->PSendSysMessage("You have given account %s %u Gamepoints", accountName, amount);
             }
-           
+
         }
         return true;
     }
